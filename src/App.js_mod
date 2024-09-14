@@ -11,7 +11,7 @@ class App extends Component {
     async loadBlockchainData(){
         console.log('VotingAddress.address', VotingAddress.address)
         console.log('VotingAbi.abi', VotingAbi.abi)
-        const web3 = new Web3(new Web3.providers.HttpProvider("http://ec2-34-219-145-199.us-west-2.compute.amazonaws.com:8545"))
+        const web3 = new Web3(new Web3.providers.HttpProvider("http://ec2-54-188-123-47.us-west-2.compute.amazonaws.com:8545"))
         var account;
         const accounts  = await web3.eth.getAccounts()
         console.log(accounts)
