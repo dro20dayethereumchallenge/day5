@@ -11,12 +11,11 @@ class App extends Component {
     async loadBlockchainData(){
         console.log('VotingAddress.address', VotingAddress.address)
         console.log('VotingAbi.abi', VotingAbi.abi)
-        const web3 = new Web3(new Web3.providers.HttpProvider("http://ec2-34-219-145-199.us-west-2.compute.amazonaws.com:8545"))
+        const web3 = new Web3(new Web3.providers.HttpProvider("http://ec2-34-219-72-17.us-west-2.compute.amazonaws.com:8545"))
         var account;
         const accounts  = await web3.eth.getAccounts()
         console.log(accounts)
         this.setState( { account : accounts[0] })
-        this.setState( { account2 : accounts[1] })
         console.log(account);
         const contract = new web3.eth.Contract(VotingAbi.abi);
         contract.options.address = VotingAddress.address
@@ -37,7 +36,6 @@ class App extends Component {
             message: ''
         }
      this.voting = this.voting.bind(this)
-     this.votingtwo = this.votingtwo.bind(this)
     }
     voting = async (name) =>  {
         this.state.contract.methods.voteForCandidate(name).send({gas: 140000, from: this.state.account });
@@ -50,14 +48,6 @@ class App extends Component {
         
 
     }
-    votingtwo = async (name) =>  {
-        this.state.contract.methods.voteForCandidate(name).send({gas: 140000, from: this.state.account2 });
-        var count = await this.state.contract.methods.totalVotesFor(name).call(console.log);
-        count = this.state[name]
-	this.setState( { [name]: parseInt(count) } )
- }
-
-
 render(){
 
         return (
@@ -67,8 +57,6 @@ render(){
                  <button onClick={() => this.voting("Amber")}>Amber vote</button>
 
 		</div>
-                 <button onClick={() => this.votingtwo("Johnny")}>Johnny vote</button>
-                 <button onClick={() => this.votingtwo("Amber")}>Amber vote</button>
 
                 <h5>Johnny count: {this.state.Johnny}</h5>
                 <h5>Amber count: {this.state.Amber}</h5>
