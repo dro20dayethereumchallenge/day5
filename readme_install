@@ -39,7 +39,7 @@ mkdir scripts
 vi scripts/deploy.js
 
 cd test
-
+vi Voting.js
 
 
 npx hardhat test
