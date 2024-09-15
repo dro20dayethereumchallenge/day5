@@ -44,6 +44,46 @@ vi Voting.js
 
 npx hardhat test
 
+npx hardhat test
+
+
+  Voting deployment
+    ✔ Contract has been deployed successfully (665ms)
+
+  Voting variable test
+    ✔ contract variables set appropriately
+
+  Voting variable test
+    ✔ contract variables set appropriately
+
+  owner()
+deployer HardhatEthersSigner {
+  _gasLimit: 30000000,
+  address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  provider: HardhatEthersProvider {
+    _hardhatProvider: LazyInitializationProviderAdapter {
+      _providerFactory: [AsyncFunction (anonymous)],
+      _emitter: [EventEmitter],
+      _initializingPromise: [Promise],
+      provider: [BackwardsCompatibilityProviderAdapter]
+    },
+   },
+    _networkName: 'hardhat',
+    _blockListeners: [],
+    _transactionHashListeners: Map(0) {},
+    _eventListeners: []
+  }
+}
+undefined 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+    ✔ returns the address of the owner
+
+  vote For Johnny
+0n
+1n
+    ✔ test my vote function
+
+
+  5 passing (736ms)
 
 
 /home/ubuntu/hello   npx hardhat node --hostname ec2-35-86-73-162.us-west-2.compute.amazonaws.com
