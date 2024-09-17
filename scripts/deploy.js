@@ -4,9 +4,7 @@ const web3 = require("web3")
 async function main() {
     const VOTING  = await hre.ethers.getContractFactory("Voting");
     // deploy contracts
-    const listOfCandidates = ["Johnny", "Amber"]
-
-    const voting  = await VOTING.deploy(listOfCandidates.map(name => web3.utils.asciiToHex(name)));
+    const voting  = await VOTING.deploy();
     await voting.waitForDeployment();
     console.log("voting deployed to: ", await voting.getAddress());
     const contractAddress  = await voting.getAddress();
